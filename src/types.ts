@@ -11,3 +11,7 @@ export interface Chat {
     deletedAt: string|null,
 }
 
+export interface GT6Params {
+    user: string,
+    id: number
+}

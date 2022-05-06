@@ -1,7 +1,6 @@
-const {merge} = require('webpack-merge');
-const webpack = require('webpack');
-const common = require('./webpack.common.js');
-const path = require('path');
+import {merge} from 'webpack-merge'
+import {commonConfig} from './webpack.common.js'
+import path from "node:path";
 
 const localProxy = {
     target: {
@@ -14,7 +13,7 @@ const localProxy = {
     secure: false,
 };
 
-module.exports = merge(common, {
+export default merge(commonConfig, {
     mode: 'development',
     devServer: {
         allowedHosts: 'auto',

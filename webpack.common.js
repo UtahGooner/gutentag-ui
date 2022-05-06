@@ -1,9 +1,6 @@
-const path = require('path');
+import path from 'node:path';
 
-
-// require('dotenv').config();
-
-module.exports = {
+export const commonConfig = {
     entry: './src/index.tsx',
     module: {
         rules: [
@@ -55,7 +52,7 @@ module.exports = {
         }
     },
     output: {
-        path: path.join(__dirname, 'public/js'),
+        path: path.join(process.cwd(), 'public/js'),
         filename: "[name].js",
         sourceMapFilename: '[file].map',
         publicPath: '/',

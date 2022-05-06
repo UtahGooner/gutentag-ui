@@ -1,11 +1,19 @@
-html, body, #app {
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+:root {
+  --dark-border-color: var(--bs-gray-400);
+  --light-border-color: var(--bs-gray-200);
+  --name-bg-color: var(--bs-gray-200);
+}
+
+html, body,
+#app {
   background-color: transparent;
 }
 
 .app-container {
-  width: 500px;
-  max-width: 500px;
-  margin: 2rem auto;
+  width: 319.98px;
+  max-width: 319.98px;
+  margin: 0 auto;
 }
 
 .chat-container {
@@ -14,9 +22,12 @@ html, body, #app {
   margin-bottom: 3px;
   border: 1px solid #ddd;
 }
+.chat-container.larger {
+  font-size: larger;
+}
 .chat-container .status {
   background-color: transparent;
-  border-bottom: 1px solid #dddddd;
+  border-bottom: 1px solid var(--dark-border-color);
   color: #888888;
   font-size: 10px;
   text-align: right;
@@ -26,40 +37,71 @@ html, body, #app {
   justify-content: space-between;
 }
 .chat-container .status.disconnected {
-  background-color: black;
+  background-color: #666666;
+  color: #FFFF00;
+}
+.chat-container .status.disconnected .heartbeat {
+  color: black;
 }
 .chat-container .status .heartbeat {
-  color: #eeeeee;
+  color: rgba(255, 0, 0, 0.2509803922);
+  transition: color ease-in-out 350ms;
 }
 .chat-container .status .heartbeat.ping {
-  color: red;
+  color: #FF0000;
 }
 .chat-container .chat {
   display: flex;
-  border-bottom: 1px solid #dddddd;
   font-size: 13px;
   padding-right: 3px;
   background-color: white;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: baseline;
+  margin-bottom: 0.25rem;
 }
 .chat-container .chat .chat-name {
   color: #444;
-  display: inline;
+  flex: 1 0 33.33333%;
+  background-color: var(--light-border-color);
+  border-right: 1px solid var(--dark-border-color);
+  border-top: 1px solid var(--dark-border-color);
+  max-height: 100%;
+  font-weight: 500;
+  z-index: 2;
+}
+.chat-container .chat .chat-name a, .chat-container .chat .chat-name span {
+  padding: 0 0.5rem 0 0.25rem;
+}
+.chat-container .chat .chat-timestamp {
+  flex: 1 0 66.66667%;
+  font-size: 75%;
+  opacity: 80%;
   padding: 0 0.25rem;
-  background-color: #eeeeee;
-  min-width: 5rem;
+  overflow: hidden;
 }
 .chat-container .chat .chat-text {
-  display: inline;
+  flex: 0 0 100%;
   color: #444444;
-  margin-left: 3px;
-  margin-right: 3px;
+  border-top: 1px solid var(--dark-border-color);
+  margin-top: -1px;
+  padding: 0.25rem;
   word-break: break-word;
+  max-height: 400px;
+  overflow: auto;
+}
+.chat-container .chat .chat-text span.emoji {
+  font-size: 150%;
 }
 .chat-container .new-chat .chat {
-  border-color: #666666;
-  background-color: lightblue;
+  border-color: var(--bs-blue);
+  opacity: 80%;
+}
+.chat-container .new-chat .chat .chat-name {
+  color: var(--bs-blue);
+}
+.chat-container .new-chat .chat .chat-text {
+  color: var(--bs-blue);
 }
 .smiley-hint-list {
   overflow: auto;
