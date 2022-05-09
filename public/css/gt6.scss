@@ -55,7 +55,7 @@ html, body,
 
 
   .chat {
-    display: flex;
+    display: block;
     font-size: 13px;
     padding-right: 3px;
     background-color: white;
@@ -65,14 +65,20 @@ html, body,
     align-items: baseline;
     margin-bottom: 0.25rem;
 
+    .chat-header {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+    }
 
     .chat-name {
       color: #444;
-      flex: 1 0 33.33333%;
+      //flex: 1 0 33.33333%;
       background-color: var(--light-border-color);
       border-right: 1px solid var(--dark-border-color);
       border-top: 1px solid var(--dark-border-color);
-      max-height: 100%;
+      max-width: 100%;
       font-weight: 500;
       z-index: 2;
       a, span {
@@ -81,7 +87,7 @@ html, body,
     }
 
     .chat-timestamp {
-      flex: 1 0 66.66667%;
+      //flex: 1 0 66.66667%;
       font-size: 75%;
       opacity: 80%;
       padding: 0 0.25rem;
