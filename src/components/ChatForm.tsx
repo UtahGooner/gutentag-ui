@@ -121,10 +121,11 @@ const ChatForm: React.FC<ChatForm> = ({
             {autoComplete && (
                 <SmileyHintList matching={matching} onClick={onClickSmileyHint}/>
             )}
-
-            <button className={classNames("btn btn-outline-secondary", {'visually-hidden': autoComplete})}
-                    type="submit">Submit
-            </button>
+            <div className="d-grid gap-2">
+                <button className={classNames("btn btn-sm btn-outline-secondary btn-", {'visually-hidden': autoComplete})}
+                        type="submit">Submit
+                </button>
+            </div>
         </form>
     )
 }
