@@ -1,3 +1,5 @@
+
+
 export interface Chat {
     id: number,
     username: string,
@@ -14,4 +16,9 @@ export interface Chat {
 export interface GT6Params {
     user: string,
     id: number
+}
+
+export interface WSJsonMessage {
+    pong?: number
+    list?: Chat[]
 }

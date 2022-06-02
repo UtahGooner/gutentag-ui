@@ -3,6 +3,7 @@ import useWebSocket from "react-use-websocket";
 import ChatList from "./ChatList";
 import Status from "./Status";
 import ChatForm from "./ChatForm";
+import {Chat, WSJsonMessage} from "../types";
 
 const socketURL = 'wss://gutenprog.com/gt6/chat/';
 
@@ -21,7 +22,7 @@ const GutenTag: React.FC = () => {
     const [shouldReconnect, setShouldReconnect] = useState(true);
 
     const [connected, setConnected] = useState(false);
-    const [chatList, setChatList] = useState([]);
+    const [chatList, setChatList] = useState<Chat[]>([]);
     const [heartbeat, setHeartbeat] = useState(false);
 
     const [userName, setUserName] = useState(window.gt6Params?.user || 'guest');
@@ -58,15 +59,17 @@ const GutenTag: React.FC = () => {
         shouldReconnect: () => shouldReconnect,
     });
 
+    const jsonMessage = lastJsonMessage as WSJsonMessage;
+
     useEffect(() => {
         if (!lastJsonMessage) {
             return;
         }
-        if (lastJsonMessage.pong) {
+        if (jsonMessage.pong) {
             return setHeartbeat(false);
         }
-        if (lastJsonMessage.list) {
-            return setChatList(lastJsonMessage.list);
+        if (jsonMessage.list) {
+            return setChatList(jsonMessage.list);
         }
     }, [lastJsonMessage]);
 
