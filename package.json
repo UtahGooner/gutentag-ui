@@ -1,6 +1,6 @@
 {
   "name": "gt6-ui",
-  "version": "6.1.1",
+  "version": "6.1.2",
   "description": "GutenTag V6",
   "main": "src/index.tsx",
   "type": "module",
